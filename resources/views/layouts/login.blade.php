@@ -27,13 +27,15 @@
                 <div id="accordion" class="accordion-container">
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
                     <script src="js/script.js">
-                    <p>〇〇さん<img src="images/icon4.png"></p>
+                    <p class="accordion-title js-accordion-title">〇〇さん<img src="images/icon4.png"></p>
                     </div>
+                    <div class="accordion-content">
                 <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
+                </div>
                 </script>
                 </div>
     </header>
