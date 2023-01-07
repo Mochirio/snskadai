@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest');//ログインした状態で会員登録ページ（/register）にアクセスすると、「/home」にリダイレクトされる
     }
 
     /**
@@ -79,8 +79,10 @@ class RegisterController extends Controller
         if($request->isMethod('post')){
             $data = $request->input();
 
-            $this->create($data);
-            return redirect('added');
+            $this->create($data);//createメソッドから$dataを引っ張り出している
+            return redirect('added')->with('username',$data['username']);
+            //withの中の第1引数はadded.blade.phpのセッションの中身と同じにする必要がある。
+            //$data変数に入っているusernameを反映させている。
         }
         return view('auth.register');
     }
@@ -88,4 +90,7 @@ class RegisterController extends Controller
     public function added(){
         return view('auth.added');
     }
+
+
+
 }

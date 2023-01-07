@@ -40,3 +40,10 @@ Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::post('sample', 'FormController@postValidates');
+
+Route::group(['middleware' => 'auth'], function() {
+   Route::get('/post', 'PostController@showCreateForm')->name('posts.create');
+   Route::post('/post', 'PostController@create');
+});//「Route::group(['middleware' => 'auth'], function() { });」 で投稿フォームを囲む

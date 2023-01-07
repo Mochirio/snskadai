@@ -36,7 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout');//実際にログインした状態でログインページ（/login）にアクセスすると、「/home」にリダイレクトされる
     }
 
     public function login(Request $request){
@@ -50,7 +50,9 @@ class LoginController extends Controller
             }
         }
         return view("auth.login");
+    }
 
+    public function logout(){
         Auth::logout();
         return redirect('login');
     }
