@@ -30,9 +30,11 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
-Route::get('/top','PostsController@index');
 
-Route::get('/profile','UsersController@profile');
+
+Route::group(['middleware' => 'auth'], function() {
+   Route::get('/top','PostsController@index');
+   Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search');
 
@@ -42,8 +44,8 @@ Route::get('/follower-list','FollowsController@followerList');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('sample', 'FormController@postValidates');
+});//「Route::group(['middleware' => 'auth'], function() { });」 でログイン中しか見れないページを囲む
 
-Route::group(['middleware' => 'auth'], function() {
-   Route::get('/post', 'PostController@showCreateForm')->name('posts.create');
-   Route::post('/post', 'PostController@create');
-});//「Route::group(['middleware' => 'auth'], function() { });」 で投稿フォームを囲む
+Route::get('/', function () {
+    return view('auth.login');
+})->name('login');
