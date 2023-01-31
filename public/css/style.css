@@ -7,17 +7,21 @@ body {}
 /* header */
 header {
     background: #186AC9;
+    height: 80px;
+}
+
+.icon1 {
+    width: 45px;
+
 }
 
 .accordion-content {
     display: none;
-    padding-left: 2.3125em;
 }
 
 .accordion-container {
     position: relative;
-    width: 100%;
-    cursor: pointer
+    cursor: pointer;
 }
 
 
@@ -38,7 +42,7 @@ header {
     transform: rotate(135deg);
     transition: transform .3s ease-in-out,
         top .3s ease-in-out;
-    width: 8px;
+    width: 10px;
 
 }
 
@@ -51,8 +55,10 @@ header {
 
 /* CSS for CodePen */
 .accordion-container {
-    width: 300px;
+    width: 150px;
     margin: 1.875em auto;
+    margin-top: -60px;
+    float: right;
 }
 
 /* main content */
@@ -68,4 +74,13 @@ header {
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+
+
+.atlas_image {
+    top: 20px;
+    margin: 20px;
+    width: 90px;
+    height: auto;
 }

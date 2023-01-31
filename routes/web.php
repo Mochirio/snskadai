@@ -44,7 +44,11 @@ Route::get('/follower-list','FollowsController@followerList');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('sample', 'FormController@postValidates');
-});//「Route::group(['middleware' => 'auth'], function() { });」 でログイン中しか見れないページを囲む
+
+Route::post('/post/create','PostsController@create');
+Route::get('/post/{id}/delete','PostsController@delete');
+Route::get('post/{id}/update-form', 'PostsController@updateForm');
+});//「Route::group(['middleware' => 'auth'], function() { });」 でログイン中のみ閲覧可能なページを囲む
 
 Route::get('/', function () {
     return view('auth.login');

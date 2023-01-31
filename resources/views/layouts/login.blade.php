@@ -22,10 +22,9 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
-            <div id="">
+        <h1><a href="/top"><img src="images/atlas.png" class="atlas_image"></a></h1>
                 <div id="accordion" class="accordion-container">
-                    <p class="accordion-title js-accordion-title">さん<img src="images/icon4.png"></p>
+                    <p class="accordion-title js-accordion-title" >{{ Auth::user()->username }}さん<img src="images/icon1.png" class="icon1"></p>
                     </div>
                     <div class="accordion-content">
                 <ul>
@@ -33,7 +32,6 @@
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
-                </div>
                 </div>
     </header>
     <div id="row">
