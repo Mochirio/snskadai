@@ -47,7 +47,7 @@ Route::post('sample', 'FormController@postValidates');
 
 Route::post('/post/create','PostsController@create');
 Route::get('/post/{id}/delete','PostsController@delete');
-Route::get('post/{id}/update-form', 'PostsController@updateForm');
+Route::post('/update', 'PostsController@update');
 });//「Route::group(['middleware' => 'auth'], function() { });」 でログイン中のみ閲覧可能なページを囲む
 
 Route::get('/', function () {

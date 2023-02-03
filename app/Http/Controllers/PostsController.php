@@ -18,7 +18,7 @@ class PostsController extends Controller
     {
         $post = $request->input('newPost');//newPost=name属性の値
         $id = Auth::id();
-        //dd($post);
+        //dd($post);デバック
         Post::create([
             'post' => $post,
             'user_id' => $id,
@@ -32,10 +32,15 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    public function updateForm($id)
+    public function update(Request $request)
     {
-        $post = Post::where('id', $id)->first();
-        return view('posts.updateForm', ['post'=>$post]);
+        $id = $request->input('id');
+        //inputの中のidはname属性
+        $up_post = $request->input('upPost');
+        //dd($up_post);
+        Post::where('id', $id)->update(['post' => $up_post]);
+        // ''の中身はカラム名「,」はイコール
+        return redirect('/top');
     }
 
 }
