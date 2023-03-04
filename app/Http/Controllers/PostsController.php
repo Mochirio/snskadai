@@ -42,5 +42,4 @@ class PostsController extends Controller
         // ''の中身はカラム名「,」はイコール
         return redirect('/top');
     }
-
 }

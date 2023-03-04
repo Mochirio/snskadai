@@ -37,7 +37,6 @@ Route::group(['middleware' => 'auth'], function() {
    Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search');
-
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');
 
@@ -48,6 +47,7 @@ Route::post('sample', 'FormController@postValidates');
 Route::post('/post/create','PostsController@create');
 Route::get('/post/{id}/delete','PostsController@delete');
 Route::post('/update', 'PostsController@update');
+
 });//「Route::group(['middleware' => 'auth'], function() { });」 でログイン中のみ閲覧可能なページを囲む
 
 Route::get('/', function () {
